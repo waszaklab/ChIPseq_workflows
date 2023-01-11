@@ -13,7 +13,7 @@ hints:
 
 baseCommand: ["bowtie2"]
 arguments:
-  - valueFrom: --very-sensitive
+  - valueFrom: --sensitive-local
     position: 1
   - valueFrom: $(runtime.cores) # set the number of threads
     prefix: "-p"
@@ -32,7 +32,7 @@ arguments:
     prefix: "-S"
     position: 6
 stderr: $( inputs.fastq1.nameroot + ".bowtie2_stderr") # log file
-  
+
 
 inputs:
   genome_index:

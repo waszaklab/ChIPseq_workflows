@@ -84,6 +84,11 @@ inputs:
       Mean library fragment size, used to reconstruct entire 
       fragments from single end reads. Not relevant in case of paired end data.
     type: int?
+  max_mapping_insert_length:
+    doc: |
+      Maximum fragment length for valid paired-end alignments (bowtie2).
+    type: long
+    default: 2000
   effective_genome_size:
     doc: |
       The effectively mappable genome size, please see: 
@@ -125,6 +130,8 @@ steps:
         source: adapter2
       is_paired_end:
         source: is_paired_end
+      max_mapping_insert_length:
+        source: max_mapping_insert_length
     out:
       - raw_fastqc_zip
       - raw_fastqc_html
