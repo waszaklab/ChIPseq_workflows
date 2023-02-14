@@ -5,14 +5,14 @@ requirements:
   - class: StepInputExpressionRequirement
 hints:
   DockerRequirement:
-    dockerPull: kerstenbreuer/phantompeakqualtools:1.2
+    dockerPull: waszaklab/phantompeakqualtools:1.2.2
   ResourceRequirement:
     coresMin: 1
     ramMin: 20000
     #tmpdirMin: 10000
 
 # Please note: please adjust the path to run_spp.R if not using containers:
-baseCommand: ["Rscript", "--verbose", "--max-ppsize=500000", "/usr/bin/phantompeakqualtools-1.2/run_spp.R"]
+baseCommand: ["Rscript", "--verbose", "--max-ppsize=500000", "/usr/bin/phantompeakqualtools-1.2.2/run_spp.R"]
 arguments:
   - valueFrom: $(runtime.tmpdir)
     prefix: -tmpdir=
